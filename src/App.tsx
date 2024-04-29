@@ -10,7 +10,7 @@ function App() {
 	const navigate = useNavigate()
 
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col overflow-x-hidden">
 			<NextUIProvider navigate={navigate}>
 				<Routes>
 					<Route path="/" element={<LoginPage />} />
