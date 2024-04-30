@@ -56,9 +56,10 @@ export default function LoginPage() {
 
   	return (
 		<div className="flex flex-row h-screen">
-			<div className="w-3/4 flex justify-center items-center bg-gradient-to-br from-indigo-800 via-purple-800 to-purple-900 text-gray-200">Login page</div>
-			<div className="w-1/4 flex flex-col justify-center items-center dark bg-fuchsia-950">
-				<Card className="w-[340px] h-[400px]">
+			<div className="w-3/4 flex justify-center items-center bg-gradient-to-br from-indigo-800 via-purple-800 to-purple-900 text-gray-200 hidden md:block">Login page</div>
+			<div className="w-full md:w-1/4 flex flex-col justify-around items-center dark bg-gradient-to-br from-indigo-800 via-purple-800 to-purple-900 md:bg-fuchsia-950">
+				<div className="text-gray-200 text-xl md:hidden">Shopping Budgeting App</div>
+				<Card className="max-w-[340px] max-h-[400px]">
 					<CardBody className="overflow-hidden">
 						<Tabs
 						fullWidth
