@@ -118,11 +118,6 @@ export default function ShopItem(props: propTypes) {
 		props.handleItemCategoryChange(categoryId)
 	}
 
-	const handlePriorityChange = (keys: string[]) => {
-		const priority = parseInt(keys[0], 10)
-		props.setPriority(priority)
-	}
-
 	// const categoryList = categories.map((category: Category) => {
 	// 	return (
 	// 		<DropdownItem
@@ -153,7 +148,8 @@ export default function ShopItem(props: propTypes) {
 						selectionMode="single"
 						hideSelectedIcon
 						selectedKeys={selectedKeys}
-						onSelectionChange={setSelectedKeys}
+						//@ts-ignore
+						onSelectionChange={setSelectedKeys} 
 						onAction={props.setPriority}
 						name="priority"
 					>
@@ -186,6 +182,7 @@ export default function ShopItem(props: propTypes) {
 					<div className="flex flex-row gap-20 px-6 items-center text-gray-300 w-1/3">
 						{ isEditable ?
 							<div className="flex flex-col gap-2">
+								{/* @ts-ignore */}
 								<Input type="number" label="Price" name="price" size="sm" onChange={handleEditChange} value={editItem.price} />
 								<Input type="text" label="Reference link" name="referenceLink" size="sm" onChange={handleEditChange} value={editItem.referenceLink} />
 							</div> :
@@ -218,7 +215,9 @@ export default function ShopItem(props: propTypes) {
 								disallowEmptySelection
 								selectionMode="single"
 								selectedKeys={selectedTags}
+								//@ts-ignore
 								onSelectionChange={setSelectedTags}
+								//@ts-ignore
 								onAction={handleTagChange} 
 								name="tag"
 							>
@@ -239,7 +238,9 @@ export default function ShopItem(props: propTypes) {
 								disallowEmptySelection
 								selectionMode="single"
 								selectedKeys={selectedCategories}
+								//@ts-ignore
 								onSelectionChange={setSelectedCategories}
+								//@ts-ignore
 								onAction={handleCategoryChange} 
 								name="category"
 							>

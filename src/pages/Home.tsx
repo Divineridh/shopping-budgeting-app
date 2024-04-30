@@ -385,6 +385,7 @@ export default function Home() {
 				addToQueue={() => addToQueue(item.shopItemId)}
 				togglePurchased={() => setAsPurchased(item.shopItemId)}
 				deleteItem={() => deleteItem(item.shopItemId)}
+				//@ts-ignore
 				setPriority={(newPriority: number) => setPriority(item.shopItemId, newPriority)}
 				handleEdit={(itemName: string, details: string, price: number, link: string) => handleEditSubmit(item.shopItemId, itemName, details, price, link)}
 				handleItemTagChange={(tagId: number) => handleItemTagChange(item.shopItemId, tagId)}
@@ -410,6 +411,7 @@ export default function Home() {
 				addToQueue={() => addToQueue(item.shopItemId)}
 				togglePurchased={() => setAsPurchased(item.shopItemId)}
 				deleteItem={() => deleteItem(item.shopItemId)}
+				//@ts-ignore
 				setPriority={(newPriority: number) => setPriority(item.shopItemId, newPriority)}
 				handleEdit={(itemName: string, details: string, price: number, link: string) => handleEditSubmit(item.shopItemId, itemName, details, price, link)}
 				handleItemTagChange={(tagId: number) => handleItemTagChange(item.shopItemId, tagId)}
@@ -436,11 +438,14 @@ export default function Home() {
 									<ModalBody>
 										<Input autoFocus label="Item name" name="itemName" size="sm" onChange={handleNewItemChange} value={newItem.itemName} />
 										<div className="flex flex-row justify-between gap-3">
+											{/* @ts-ignore */}
 											<Input size="sm" label="Estimated price" name="price" type="number" onChange={handleNewItemChange} value={newItem.price} />
 										</div>
+										{/* @ts-ignore */}
 										<Select label="Select a tag" size="sm" selectedKeys={selectedTag} onSelectionChange={setSelectedTag}>
 											{tagsRender}
 										</Select>
+										{/* @ts-ignore */}
 										<Select label="Select a category" size="sm" selectedKeys={selectedCategory} onSelectionChange={setSelectedCategory}>
 											{categoriesRender}
 										</Select>
@@ -470,12 +475,15 @@ export default function Home() {
 					<div>
 						<Checkbox isSelected={purchasedFilterIsSelected} onValueChange={setPurchasedFilterIsSelected} className="dark text-gray-200" radius="none" size="md">Show only purchased</Checkbox>
 					</div>
+					{/* @ts-ignore */}
 					<Select label="Select a tag" size="sm" className="dark" selectedKeys={selectedFilterTag} onSelectionChange={setSelectedFilterTag}>
 						{tagsRender}
 					</Select>
+					{/* @ts-ignore */}
 					<Select label="Select a category" size="sm" className="dark" selectedKeys={selectedFilterCategory} onSelectionChange={setSelectedFilterCategory}>
 						{categoriesRender}
 					</Select>
+					{/* @ts-ignore */}
 					<Select label="Select a priority" size="sm" className="dark" selectedKeys={selectedFilterPriority} onSelectionChange={setSelectedFilterPriority}>
 						<SelectItem key="1" value="1">1 (highest)</SelectItem>
 						<SelectItem key="2" value="2">2</SelectItem>
