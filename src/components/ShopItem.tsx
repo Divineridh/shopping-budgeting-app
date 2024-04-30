@@ -20,7 +20,7 @@ interface propTypes {
 	addToQueue: () => void,
 	togglePurchased: () => void,
 	deleteItem: () => void,
-	setPriority: (newPriority: number) => void,
+	setPriority: (newPriority: React.Key) => void,
 	handleEdit: (itemName: string, details: string, price: number, link: string) => void,
 	handleItemTagChange: (tagId: number) => void,
 	handleItemCategoryChange: (categoryId: number) => void
@@ -65,7 +65,7 @@ export default function ShopItem(props: propTypes) {
 		console.log("Error loading categories")
 	}
 
-	const [selectedKeys, setSelectedKeys] = useState(new Set([props.priority]))
+	const [selectedKeys, setSelectedKeys] = useState([props.priority.toString()])
 	const [showDescription, setShowDescription] = useState(false)
 	const [isEditable, setIsEditable] = useState(false)
 	const [selectedTags, setSelectedTags] = useState(new Set([props.tag]))
@@ -118,7 +118,10 @@ export default function ShopItem(props: propTypes) {
 		props.handleItemCategoryChange(categoryId)
 	}
 
-	
+	const handlePriorityChange = (keys: string[]) => {
+		const priority = parseInt(keys[0], 10)
+		props.setPriority(priority)
+	}
 
 	// const categoryList = categories.map((category: Category) => {
 	// 	return (
